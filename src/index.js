@@ -1,3 +1,3 @@
-import first from './modules/first';
+import modalCall from "./modules/Modal/modal-call";
 
-first();
+modalCall();
