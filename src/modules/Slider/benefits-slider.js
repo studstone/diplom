@@ -6,6 +6,8 @@ const benefitsSlider = () => {
     const arrowRight = arrowsBlock.querySelector('.benefits__arrow--right > img');
     const widht = document.documentElement.clientWidth;
 
+    widht < 576 ? sliderWrapper.style.justifyContent = 'center' : sliderWrapper.style.justifyContent = '';
+
     const visibleSlides = () => (widht >= 576 ? 3 : 1);
 
     const hideSlides = list => {
