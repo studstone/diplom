@@ -8,4 +8,5 @@ modalCall();
 benefitsSlider();
 servicesSlider();
 servicesModal();
-timer('9 june 2022 13: 30: 00');
+timer('9 june 2022 13: 30: 00', '#order_1');
+timer('9 june 2022 13: 30: 00', '#order_2');
