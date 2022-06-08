@@ -26,6 +26,26 @@ const documentModal = () => {
                 width: 60%;
                 height: 90%;
             `;
+        } else if (widht > 576 && widht < 800) {
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                width: 70%;
+                height: 80%;
+            `;
+        } else if (widht > 800 && widht < 1200) {
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                width: 50%;
+                height: 80%;
+            `;
         } else {
             modal.style.cssText = `
                 position: fixed;
@@ -33,8 +53,8 @@ const documentModal = () => {
                 left: 50%;
                 transform: translate(-50%, -50%);
                 z-index: 9999;
-                width: 30%;
-                height: 90%;
+                width: 40%;
+                height: 80%;
             `;
         }
 
