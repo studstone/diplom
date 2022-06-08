@@ -10,6 +10,8 @@ const servicesSlider = () => {
     sliderWrapper.style.cssText = `
     display: flex;
     `;
+    widht < 1200 ? sliderWrapper.style.justifyContent = 'center' : sliderWrapper.style.justifyContent = '';
+
 
     const visibleSlides = () => (widht >= 1200 ? 2 : 1);
 
