@@ -1,3 +1,4 @@
+import documentModal from "./modules/Modal/document-modal";
 import modalCall from "./modules/Modal/modal-call";
 import servicesModal from "./modules/Modal/services-modal";
 import benefitsSlider from "./modules/Slider/benefits-slider";
@@ -10,3 +11,4 @@ servicesSlider();
 servicesModal();
 timer('9 june 2022 13: 30: 00', '#order_1');
 timer('9 june 2022 13: 30: 00', '#order_2');
+documentModal();
