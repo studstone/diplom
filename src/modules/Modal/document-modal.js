@@ -4,6 +4,7 @@ const documentModal = () => {
     const certificateBlock = documentSection.querySelectorAll('.col-sm-4');
     const modal = document.createElement('div');
     const overlay = document.querySelector('.overlay');
+    const widht = document.documentElement.clientWidth;
 
     const createModal = () => {
         body.append(modal);
@@ -15,15 +16,28 @@ const documentModal = () => {
         const buttonClose = modal.querySelector('span');
         const image = modal.querySelector('img');
 
-        modal.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-        width: 60%;
-        height: 84%;
-        `;
+        if (widht < 576) {
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                width: 60%;
+                height: 90%;
+            `;
+        } else {
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                width: 30%;
+                height: 90%;
+            `;
+        }
+
 
         buttonClose.style.cssText = `
         cursor: pointer;

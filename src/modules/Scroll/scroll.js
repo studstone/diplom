@@ -4,7 +4,6 @@ const smoothScroll = () => {
 
     window.addEventListener('scroll', () => {
         const scrollTop = document.documentElement.scrollTop;
-        console.log(scrollTop);
         if (scrollTop <= 856) {
             arrowUp.style.display = 'none';
         } else {
