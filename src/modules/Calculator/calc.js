@@ -5,8 +5,6 @@ const calc = () => {
     const calcInput = document.getElementById('calc-input');
     const calcTotal = document.getElementById('calc-total');
 
-    console.log(calcType.options);
-
     const validate = () => {
         calcInput.addEventListener('change', () => {
             if (!/[^\d]/g.test(calcInput.value)) {
@@ -35,7 +33,7 @@ const calc = () => {
         calcTotal.value = totalValue;
     };
 
-    calcWrapper.addEventListener('change', e => {
+    calcWrapper?.addEventListener('change', e => {
         if (e.target === calcType || e.target === calcTypeMaterial ||
             e.target === calcInput) {
             validate();

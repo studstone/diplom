@@ -10,7 +10,7 @@
   "browser": true,
   "devel": true,
   "jquery": true,
-  "esversion": 6,
+  "esversion": 11,
   "node": true,
   "eqeqeq": true,
   "immed": true,
