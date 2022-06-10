@@ -6,9 +6,11 @@ const form = ({ someElem = [] }) => {
     const errorText = 'Ошибка...';
     const successText = 'Спасибо! Наш менеджер с вами свяжется!';
 
+    statusBlock.style.color = '#546a76';
+
     const mapInputs = {
-        'form-name': /^[a-zA-Zа-яА-ЯёЁa ]{2,20}$/,
-        'form-phone': /^((8|\+7)[-]?)?(\(?\d{3}\)?[-]?)?[\d\- ]{7,10}$/,
+        'form-control-fio': /^[a-zA-Zа-яА-ЯёЁa ]{2,20}$/,
+        'form-control-phone': /^((8|\+7)[-]?)?(\(?\d{3}\)?[-]?)?[\d\- ]{7,10}$/,
     };
 
     const inputValidate = list => {
@@ -16,9 +18,9 @@ const form = ({ someElem = [] }) => {
         const newArray = Array.from(list);
 
         Object.keys(mapInputs).forEach(key => {
-            console.log(mapInputs, 'mapInputs');
 
             const findInput = newArray.find(input => input.classList.contains(key));
+
             if (findInput && !(mapInputs[key].test(findInput.value))) {
                 findInput.style.border = 'solid red 2px';
             }
@@ -63,17 +65,20 @@ const form = ({ someElem = [] }) => {
         formData.forEach((value, key) => {
             formBody[key] = value;
         });
+
         someElem.forEach(elem => {
+
             const element = document.getElementById(elem.id);
 
-            formBody[elem.id] = elem.type === 'block' ? element.textContent : element.value;
+            if (element) {
+                formBody[elem.id] = elem.type === 'block' ? element.value : element.textContent;
+            }
         });
 
         inputValidate(formElement);
 
         if (validate(formElement)) {
             statusBlock.textContent = loadText;
-            statusBlock.style.color = '#fff';
             form.append(statusBlock);
 
             sendData(formBody)
