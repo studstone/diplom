@@ -72,6 +72,7 @@ const form = ({ formId, someElem = [] }) => {
             statusBlock.textContent = loadText;
             form.append(statusBlock);
 
+
             sendData(formBody)
                 .then(() => {
                     statusBlock.textContent = successText;
@@ -81,6 +82,10 @@ const form = ({ formId, someElem = [] }) => {
                     });
                 })
                 .catch(() => statusBlock.textContent = errorText);
+
+            setTimeout(() => {
+                form.removeChild(statusBlock);
+            }, 10000);
         }
     };
 
