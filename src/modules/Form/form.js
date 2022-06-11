@@ -1,5 +1,5 @@
-const form = ({ someElem = [] }) => {
-    const form = document.querySelector('.form-horizontal');
+const form = ({ formId, someElem = [] }) => {
+    const form = document.querySelector(formId);
     const formElement = form.querySelectorAll('input');
     const statusBlock = document.createElement('span');
     const loadText = 'Загрузка...';
@@ -14,6 +14,7 @@ const form = ({ someElem = [] }) => {
     };
 
     const inputValidate = list => {
+        let success = true;
 
         const newArray = Array.from(list);
 
@@ -23,8 +24,11 @@ const form = ({ someElem = [] }) => {
 
             if (findInput && !(mapInputs[key].test(findInput.value))) {
                 findInput.style.border = 'solid red 2px';
+                success = false;
             }
         });
+
+        return success;
     };
     const clearStyleBorder = item => {
         if (item.style.border) {
@@ -36,18 +40,6 @@ const form = ({ someElem = [] }) => {
         list.forEach(input => {
             input.addEventListener('focus', e => clearStyleBorder(e.target));
         });
-    };
-
-    const validate = list => {
-        let success = true;
-
-        list.forEach(input => {
-            if (input.value === '') {
-                success = false;
-            }
-        });
-
-        return success;
     };
 
     const sendData = data => fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -75,9 +67,8 @@ const form = ({ someElem = [] }) => {
             }
         });
 
-        inputValidate(formElement);
 
-        if (validate(formElement)) {
+        if (inputValidate(formElement)) {
             statusBlock.textContent = loadText;
             form.append(statusBlock);
 

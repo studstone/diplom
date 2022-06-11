@@ -18,6 +18,21 @@ documentModal();
 smoothScroll();
 calc();
 form({
+    formId: '.form-horizontal',
+    someElem: [{
+        type: 'block',
+        id: 'calc-total'
+    }]
+});
+form({
+    formId: '#form-modal-1',
+    someElem: [{
+        type: 'block',
+        id: 'calc-total'
+    }]
+});
+form({
+    formId: '#form-modal-2',
     someElem: [{
         type: 'block',
         id: 'calc-total'
